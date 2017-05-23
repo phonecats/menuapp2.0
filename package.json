@@ -1,0 +1,16 @@
+{
+  "name": "express_app_v1",
+  "version": "1.0.0",
+  "description": "NodeJS application built with ExpressWorksJS, ReactJS and Bootstrap(html, css)./",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "menu",
+    "app"
+  ],
+  "author": "Oscar Chavez",
+  "license": "ISC"
+}

@@ -1,0 +1,2 @@
+Webpack server and other dev tools are still in the 'public' directory, meaning they need to be moved to a private folder and only output the compiled code.
+
