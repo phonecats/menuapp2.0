@@ -1,6 +1,7 @@
 //main file for rendering app's UI
 //Oscar Chavez April 2017
-//ReactJS, Bootstrap, jQuery, Babel, Webpack, 
+//ReactJS, Bootstrap, jQuery, Babel, Webpack,
+//FrontEnd main.js 
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -14,18 +15,19 @@ const CATEGORY3 ="Dinners";
 
 class Header extends React.Component{
 	render(){
+		
 		var style = {
 			backgroundColor: "blue",
 			height: "100px",
 		}
+
 		return(
-<nav >
-  <div className="container-fluid" style={style}>
-  	<h1 className="text-center"> {RESTAURANT_NAME} </h1>
-  </div>
-</nav>
-			)
-	};
+			<nav >
+	  			<div className="container-fluid" style={style}>
+	  				<h1 className="text-center"> {RESTAURANT_NAME} </h1>
+	  			</div>
+			</nav>
+			)};
 } // end of header component
 
 class Footer extends React.Component{
@@ -42,7 +44,6 @@ class Footer extends React.Component{
 				</div>)
 	}
 }
-
 
 class Item extends React.Component {
   
@@ -110,16 +111,28 @@ class Item extends React.Component {
 class Payment extends React.Component{
 	render(){
 		return(
-			<div className="row text-center">
+			<div className="row ">
 				<div className="col-md-12">
+					<h2> Payment Information </h2>
 					<form action="http://localhost:3000/form_userInfo" method="post">
-					<div className="row">
-						First Name: <input type="text" name="firstname" />
-					</div>
-					<div className="row">
-						Last Name: <input type="text"  name="lastname"/>
-					</div>
-					<button type="submit" className="btn"> Submit </button>
+						<h5>Form </h5>
+						<div className="row">
+							<div className="col-xs-3">
+								First Name:
+							</div>
+							<div className="col-xs-3">
+								<input type="text" name="firstname" />
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-xs-3" >
+								Last Name:
+							</div>
+							<div className="col-xs-3">
+								<input type="text"  name="lastname"/>
+							</div>
+						</div>
+						<button type="submit" className="btn"> Submit </button>
 					</form>
 				</div>
 			</div>
@@ -189,7 +202,7 @@ class ShoppingCart extends React.Component{
 		return sum
 	}
 
-
+	//needs to be lifted up to state
 	paymentToggleController(){
 		console.log("checkout button pressed")
 		if (this.state.paymentToggle == false){
@@ -270,10 +283,6 @@ class Menu extends React.Component{
 		var category2 = this.props.category2;
 		var category3 = this.props.category3;
 
-		//*Current Order
-		//*Appetizers
-		//*MainDishes
-		//*Drinks
 		//Code below handles sorting the data and creating
 		//new array with only appetizer objects
 		var category1Array =[];
@@ -283,10 +292,8 @@ class Menu extends React.Component{
 					<Item item={element}
 				   			addToCart = {(item)=> this.addToCart(item)}
 				   			 />);
-
-				   			}
-
-			});
+			}
+		});
 		//
 		//*Category 2
 		var category2Array = [];
@@ -325,26 +332,34 @@ class Menu extends React.Component{
 			}
 		}
 
+		//css styles
 		var style = {
 			"backgroundColor": "yellow",
 			"paddingBottom": "100px",
 		}
+
 		return(
+
 			<div className="container" style={style}>
 				<h1 className="text-center"> {TITLE}</h1>
+				{<Payment />}
 				{subShoppingCartRender()}
+
 				<div className="row" >
 					<h2 className="text-center"> {this.props.category1}</h2>
-				{category1Array}
+					{category1Array}
 				</div>
+
 				<div className="row">
 					<h2 className="text-center"> {this.props.category2} </h2>
 					{category2Array} 
 				</div>
+
 				<div className="row">
 					<h2 className="text-center"> {this.props.category3} </h2>
 					{category3Array}
 				</div>
+				
 				{/*Conditional rendering of shopping Cart*/}
 				{shoppingCartRender()}
 			</div>
@@ -373,7 +388,7 @@ class App extends React.Component{
 	}
 }
 
-//DATA
+//DATA//*Still need to implement requests to a DB server
 const ITEMS = [
 {"itemID":1001,"name":"Ranch House Combo","imgURL":"https://placehold.it/200","price":8,"category":"Breakfast"},{"itemID":1002,"name":"Huevos Ranch House","imgURL":"https://placehold.it/200","price":7,"category":"Breakfast"},{"itemID":1003,"name":"Steak & Eggs","imgURL":"https://placehold.it/200","price":11,"category":"Breakfast"},
 {"itemID":1004,"name":"Hamburger","imgURL":"https://placehold.it/200","price":8,"category":"Sandwich"},{"itemID":1005,"name":"Hot Ham & Cheese","imgURL":"https://placehold.it/200","price":8,"category":"Sandwich"},{"itemID":1006,"name":"BLT","imgURL":"https://placehold.it/200","price":8,"category":"Sandwich"},

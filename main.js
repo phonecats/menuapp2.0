@@ -3,6 +3,7 @@
 ///////////////////////////////////////////
 //Express App that loads ReactJS UI and handles all back-end server logic.
 //Author: Oscar Chavez @ 2017
+//Backend main.js
 ///////////////////////////////////////////
 
 
@@ -32,7 +33,7 @@ app.use(bodyparser.urlencoded({extended: false}))
 app.post('/form_userInfo', function(req, res){
 	console.log("Order Received");
 	console.log(req.body.firstname + req.body.lastname);
-	res.send('./index.html');
+	res.send('./index.htm'l);
 });
 
 
@@ -48,4 +49,4 @@ var consoleLog = {
 	"Listening on Port: ": 30000,
 }
 console.log(consoleLog)
-////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////

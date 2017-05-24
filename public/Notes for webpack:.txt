@@ -16,6 +16,7 @@ WebpackReadyReactApp file structure:
  2.git add *
  3.git commit -m "commit message"
  4.git push origin master
+ 5.0
 
  
  First commands:
