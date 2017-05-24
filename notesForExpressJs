@@ -1,1 +1,70 @@
+
+
 start at main.js
+
+
+------------------------------------------------------------------------------------------------
+App file structure
+-expressAppV1
+	-main.js
+	-package.json
+	-node modules
+		-express
+		-nodejs
+	-public
+		-main.js
+		-index.html
+		-bundle.js
+		-js
+			-bootstrap.js (v3)
+			-jquery-3.2.1.slim.js
+			-npm.js
+		-css	
+			-bootstrap.css
+			-main.css (not really used since styles are built on react)
+		--other files or foders required for the app(need to move webpack setup to other folder)
+------------------------------------------------------------------------------------------------
+
+var storeData = {
+	"RESTAURANT_NAME" : "THe chillBill Cafe",
+	"TITLE" : "Menu",
+}
+
+var categoriesDB = {
+	"CATEGORY1" : "Breakfast",
+
+}
+var DatasetITEMS = {
+	"..." : "...",
+
+}
+
+React UI Components hirearchy:
+
+//Main Function inside main.js 
+ReactDom.render(<App  />,document.getElementById('root'));
+	<App items = {DatasetITEMS} storeData = {storeData} categories = {categoriesDB} />
+		<Header restaurantName = {this.props.storeData.RESTAURANT_NAME} />
+		<Menu items={this.props.DatabaseITEMS} categories={this.props.categoriesDB} />
+			<h1 className="text-center"> {this.props.storeData.TITLE}</h1>
+			<subShoppingCart order={activeOrder}/>
+			Category 1
+			Array of <Item /> laid out grid style
+			...all categories in data set
+			IF anyItem button addToCart isClicked:
+				<Shopping cart order={activeOrder} />
+				If button checkout is clicked:
+					<Payment userInfo, orderDetails, />
+						If button pay is clicked submit form and then :
+							<ThankYou orderDetails={Server response}
+		<Footer />
+
+<Menu />
+array = this.props.categories
+newArray = []
+for( var i = 0 ; array.length; i++){
+	newArray.push(<div className="row">
+					<h2> {this.props.category[i]}
+					)
+}
+

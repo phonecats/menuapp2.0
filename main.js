@@ -1,6 +1,8 @@
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////
 //Express App that loads ReactJS UI and handles all back-end server logic.
+//Author: Oscar Chavez @ 2017
 ///////////////////////////////////////////
 
 
@@ -23,8 +25,19 @@ var bodyparser = require('body-parser');
 
 //make the 'public' directory and all its contents accessible by /*Doc Name*
 app.use(express.static( 'public'));
+//able to process POSTed URL's in json obj ex: request.body <-JSON object.
 app.use(bodyparser.urlencoded({extended: false}))
 
+//for_userInfo is url needed to be called by html react function
+app.post('/form_userInfo', function(req, res){
+	console.log("Order Received");
+	console.log(req.body.firstname + req.body.lastname);
+	res.send('./index.html');
+});
+
+
+//App begin listening
+//App initialization
 app.listen(listeningPort || 3000);
 
 
