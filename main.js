@@ -1,4 +1,4 @@
-
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////
 //Express App that loads ReactJS UI and handles all back-end server logic.
@@ -17,7 +17,8 @@ var listeningPort = process.argv[2];
 ///////////////////////////////////////////
 var express = require('express');
 var app = express();
-var bodyparser = require('body-parser');
+var bodyparser = require('body-parser')
+
 
 
 ///////////////////////////////////////////
@@ -32,10 +33,16 @@ app.use(bodyparser.urlencoded({extended: false}))
 //for_userInfo is url needed to be called by html react function
 app.post('/form_userInfo', function(req, res){
 	console.log("Order Received");
-	console.log(req.body.firstname + req.body.lastname);
-	res.send('./index.htm'l);
+	console.log(req.body.firstName);
+	res.send(req.body);
 });
 
+app.post('/json', function(req,res){
+	console.log('json post')
+
+
+	res.send(req.body);
+});
 
 //App begin listening
 //App initialization
@@ -46,7 +53,7 @@ app.listen(listeningPort || 3000);
 //Output to console
 var consoleLog = {
 	"ExpressApp ": "Reporting For Duty",
-	"Listening on Port: ": 30000,
+	"Listening on Port: ": 3000,
 }
 console.log(consoleLog)
 ///////////////////////////////////////////////////////////////////
